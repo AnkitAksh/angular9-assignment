@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="p-1 border">
+        <div class="row">
+            <div class="col-md-5 col-sm-5 col-12">
+                <div class="count-down-timer border text-center inner-wrapper">
+                    <h2>Count Down Timer</h2>
+                    <h1>{{countDown}}</h1>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-12">
+                <div class="border inner-wrapper">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 font-weight-bold"><label for="timerLimit1">Enter Timer
+                                Limit</label></div>
+                        <div class="col-md-8 col-sm-8">
+                            <input id="timerLimit1" type="number" name='timerLimit' [(ngModel)]="timerLimit"
+                                class="form-control" (ngModelChange)="modelChanged($event)"
+                                aria-describedby="passwordHelpInline">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="offset-sm-4 offset-md-4 col-md-8 col-sm-8 margin-top-10 col-12">
+                            <div role="group" aria-label="Basic example">
+                                <button *ngIf="!isStarted" type="button" class="btn btn-success" (click)="start(true)"
+                                    [disabled]="countDown === 0">Start</button>
+                                <button *ngIf="isStarted" type="button" class="btn btn-danger" (click)="pause(false)"
+                                    [disabled]="countDown === 0">Pause</button>
+                                <button type="button" class="btn btn-secondary margin-left-15"
+                                    (click)="reset()">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 margin-top-20">
+                            <ul *ngIf="paused.length > 0" [ngClass]="paused.length > 6 ? 'scroll' : ''">
+                                <li *ngFor="let time of paused" [@fadeInOut]><span class="font-weight-bold">{{time}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-sm-5 col-12 margin-top-10">
+                <ul *ngIf="statusList.length > 0" [ngClass]="statusList.length > 5 ? 'scroll' : ''">
+                    <li *ngFor="let time of statusList" [@fadeInOut]><span class="font-weight-bold">{{time}}</span></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-3 col-12 margin-top-10">
+                <div class="text-center p-2">
+                    <h1>{{startCtr}}</h1>
+                    <p class="font-weight-bold">Started </p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-12 margin-top-10">
+                <div class="text-center p-2">
+                    <h1>{{pauseCtr}}</h1>
+                    <p class="font-weight-bold">Paused</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

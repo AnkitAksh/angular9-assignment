@@ -1,0 +1,14 @@
+.inner-wrapper {
+    height: 300px;
+    padding: 15px;
+}
+
+ul {
+    list-style-type: none;
+    height: 150px;
+  }
+
+.scroll {
+    overflow: hidden;
+    overflow-y: scroll;
+}

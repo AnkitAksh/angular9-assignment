@@ -21,21 +21,8 @@
     border-radius: 0px;
 }
 
-.item.list-group-item
-{
-    float: none;
-    width: 100%;
-    background-color: #fff;
-    margin-bottom: 30px;
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
-    padding: 0 1rem;
-    border: 0;
-}
-.item.list-group-item .img-event {
-    float: left;
-    width: 30%;
+.list-card {
+    border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .item.list-group-item .list-group-image
@@ -46,12 +33,6 @@
 {
     margin-bottom: 0px;
     display: inline-block;
-}
-.item.list-group-item .caption
-{
-    float: left;
-    width: 70%;
-    margin: 0;
 }
 
 .item.list-group-item:before, .item.list-group-item:after

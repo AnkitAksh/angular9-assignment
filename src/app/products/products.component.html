@@ -1,5 +1,4 @@
-
-<div class="container" [@EnterLeave]="'flyIn'">
+<div class="container">
     <div class="row">
         <div class="col-lg-12 my-3">
             <div class="pull-right">
@@ -20,23 +19,22 @@
             </div>
         </div>
     </div>
+    
     <div class="row view-group">
-        <div *ngFor="let item of products" [ngClass]="isGrid ? 'grid-group-item' : 'list-group-item'"
-            class="item col-xs-3 col-lg-3">
-            <div class="thumbnail card">
-                <div class="img-event">
-                    <img class="group list-group-image img-fluid" src="http://placehold.it/400x250/000/fff" alt="" />
+        <div class="item" *ngFor="let product of products"
+            [ngClass]="isGrid ? 'col-xs-3 col-lg-3' : 'col-xs-12 col-lg-12 pad-bottom-30'">
+            <div [ngClass]="isGrid ? 'thumbnail card' : 'row list-card'">
+                <div [ngClass]="isGrid ? '' : 'col-xs-4 col-lg-4'">
+                    <img class="group list-group-image img-fluid" src="http://placehold.it/400x250/000/fff"
+                        alt="" />
                 </div>
-                <div class="caption card-body">
-                    <h4 class="group card-title inner list-group-item-heading">
-                        {{item.title}}</h4>
-                    <p class="group inner list-group-item-text">
-                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit, Product
-                        description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+                <div class="card-body" [ngClass]="isGrid ? '' : 'col-xs-8 col-lg-8'">
+                    <h4 class="group card-title">
+                        Title </h4>
                     <div class="row">
                         <div class="col-xs-12 col-md-6">
                             <p class="lead">
-                                $ {{item.price}}</p>
+                                $ {{product.price}}</p>
                         </div>
                     </div>
                 </div>

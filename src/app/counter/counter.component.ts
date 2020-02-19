@@ -6,6 +6,8 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { DataService } from '../shared/data.service';
+
 
 @Component({
   selector: 'app-counter',
@@ -22,7 +24,7 @@ import {
 })
 export class CounterComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  constructor(private data: DataService) { }
   timerLimit: number;
   countDown: number;
   statusList = [];
@@ -47,6 +49,7 @@ export class CounterComponent implements OnInit, OnDestroy {
     this.startCtr = 0;
     this.pauseCtr = 0;
     this.statusList = [];
+    this.data.changeCounter(this.countDown);
     clearInterval(this.timerId);
   }
 
@@ -67,6 +70,7 @@ export class CounterComponent implements OnInit, OnDestroy {
           return;
         } else {
           this.countDown = this.countDown - 1;
+          this.data.changeCounter(this.countDown);
         }
       }, 1000);
     }
